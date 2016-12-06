@@ -18,8 +18,11 @@ app.get('/upload', function(req, res) {
   res.render('upload');
 });
 
-io.on('connection', function(socket){
-  console.log('a user connected');
+io.sockets.on('connection', function(socket) {
+  socket.on('emit_from_uploader', function(data) {
+    console.log(data);
+    io.sockets.emit('emit_from_server', data);
+  });
 });
 
 const port = process.env.PORT|| 3000;
