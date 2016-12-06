@@ -41,8 +41,16 @@ app.post('/upload', function(req, res) {
 });
 
 io.sockets.on('connection', function(socket) {
-  socket.on('emit_from_uploader', function(data) {
-    console.log(data);
+
+  socket.on('client_ready', function() {
+    console.log('NEW CLIENT');
+    fs.readdir('./public/images', function(err, files) {
+      if (err) throw err;
+      socket.emit('client_ready_back', files);
+    });
+  });
+
+  socket.on('emit_from_uploader', function() {
     refresh()
   });
 
