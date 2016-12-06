@@ -15,4 +15,13 @@ $(function() {
       $('#imgs').append(inner_div);
     }
   }
+
+  $(document).click(function(e) {
+    var target_src = $(e.target).attr('src');
+    if (target_src) {
+      if (window.confirm('本当に削除しますか？')) {
+        socket.emit('delete_img', target_src);      
+      }
+    }
+  });
 });
