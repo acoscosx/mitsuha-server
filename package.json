@@ -14,7 +14,6 @@
   "dependencies": {
     "express": "*",
     "socket.io": "*",
-    "ejs": "*",
-    "fs": "*"
+    "ejs": "*"
   }
 }
