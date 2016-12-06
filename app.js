@@ -6,17 +6,34 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 
 var fs = require('fs');
+var multer = require('multer');
+var bodyParser = require('body-parser');
+
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
+app.use(multer({dest: './public/images/'}).single('photo'));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/', function(req, res) {
   res.render('index');
 });
 
 app.get('/upload', function(req, res) {
+  res.render('upload');
+});
+
+app.post('/upload', function(req, res) {
+  var temp_path = req.file.path;
+  var target_path = "public/images/" + req.file.originalname;
+  console.log("temp: " + temp_path);
+  console.log("target: " + target_path);
+  fs.rename(temp_path, target_path, function(err) {
+    if (err) throw err;
+    console.log('filename successfully changed');
+  });
   res.render('upload');
 });
 

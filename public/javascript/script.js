@@ -1,6 +1,6 @@
 $(function() {
   var socket = io.connect();
-  
+
   socket.on('refresh', function(files) {
     refreshImages(files);
   });

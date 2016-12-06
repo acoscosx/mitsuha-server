@@ -12,8 +12,10 @@
     "node": "*"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "*",
     "express": "*",
-    "socket.io": "*",
-    "ejs": "*"
+    "multer": "*",
+    "socket.io": "*"
   }
 }
