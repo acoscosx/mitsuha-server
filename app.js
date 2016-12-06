@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
 
-var http = require('http').Server(app);
+const http = require('http').Server(app);
 
-var io = require('socket.io')(http);
+const io = require('socket.io')(http);
+
+var fs = require('fs');
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -21,7 +23,10 @@ app.get('/upload', function(req, res) {
 io.sockets.on('connection', function(socket) {
   socket.on('emit_from_uploader', function(data) {
     console.log(data);
-    io.sockets.emit('emit_from_server', data);
+    fs.readdir('./public/images', function(err, files) {
+      if (err) throw err;
+      io.sockets.emit('refresh', files);
+    });
   });
 });
 
