@@ -14,6 +14,10 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
+app.get('/upload', function(req, res) {
+  res.render('upload');
+});
+
 io.on('connection', function(socket){
   console.log('a user connected');
 });
