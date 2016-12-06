@@ -5,10 +5,13 @@ var http = require('http').Server(app);
 
 var io = require('socket.io')(http);
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-  res.sendfile('index.html');
+  res.render('index');
 });
 
 io.on('connection', function(socket){
