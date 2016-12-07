@@ -7,9 +7,9 @@ $(function() {
     for (var i = 0; i < files.length; i++) {
       var img_name = files[i];
       var img_path = "images/" + img_name;
-      var inner_div = $('<div>').addClass('img-container');
+      var inner_div = $('<div>').addClass('pin');
       inner_div.append($('<img>').attr("src", img_path));
-      $('#imgs').append(inner_div);
+      $('#columns').append(inner_div);
     }
   });
 
@@ -18,13 +18,13 @@ $(function() {
   });
 
   function refreshImages(files) {
-    $('.img-container').empty();
+    $('#columns').empty();
     for (var i = 0; i < files.length; i++) {
       var img_name = files[i];
       var img_path = "images/" + img_name;
-      var inner_div = $('<div>').addClass('img-container');
+      var inner_div = $('<div>').addClass('pin');
       inner_div.append($('<img>').attr("src", img_path));
-      $('#imgs').append(inner_div);
+      $('#columns').append(inner_div);
     }
   }
 
