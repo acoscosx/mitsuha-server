@@ -1,3 +1,13 @@
 body {
-  background-color: rgb(96, 231, 255);
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+h1, p {
+  text-align: center;
+}
+
+#form-container {
+  width: 260px;
+  margin: auto;
 }

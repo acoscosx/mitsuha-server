@@ -3,15 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Uploader</title>
+    <title>Face Uploader</title>
     <link rel="stylesheet" href="stylesheet/stylesheet2.css">
   </head>
   <body>
-    <h1>This is Uploader.</h1>
-    <form id="imgUpload" method="post" enctype="multipart/form-data" action="/upload" accept="image/*;capture=camera">
-      <input type="file" name="photo">
-      <input type="submit" value="送信">
-    </form>
+    <h1>Face Uploader</h1>
+    <p>画像を撮影・選択し、送信ボタンを押してください。</p>
+    <div id="form-container">
+      <form id="imgUpload" method="post" enctype="multipart/form-data" action="/upload" accept="image/*;capture=camera">
+        <input type="file" name="photo">
+        <input type="submit" value="送信">
+      </form>
+    </div>
+    <p>Copyright &copy; 2016 Off the rails! All Rights Reserved.</p>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="javascript/script2.js"></script>
