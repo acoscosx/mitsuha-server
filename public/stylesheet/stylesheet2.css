@@ -11,3 +11,7 @@ h1, p {
   width: 300px;
   margin: auto;
 }
+
+footer {
+  margin-top: 100px;
+}
