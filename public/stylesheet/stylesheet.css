@@ -1,5 +1,5 @@
 body {
-    background: url(http://subtlepatterns.com/patterns/scribble_light.png) ;
+    background-color: rgb(0, 0, 0);
 }
 
 #wrapper {
@@ -23,16 +23,12 @@ body {
 
 .pin {
     display: inline-block;
-    background: #FEFEFE;
-    border: 2px solid #FAFAFA;
+    background: #000000;
     box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
-    margin: 0 2px 15px;
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
     column-break-inside: avoid;
-    padding: 15px;
-    padding-bottom: 5px;
-    background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+    background: -webkit-linear-gradient(45deg, #000000, #000000);
     opacity: 1;
 
     -webkit-transition: all .2s ease;
@@ -42,15 +38,13 @@ body {
 }
 
 .pin img {
+    display: block;
     width: 100%;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 15px;
-    margin-bottom: 5px;
 }
 
 .pin p {
     font: 12px/18px Arial, sans-serif;
-    color: #333;
+    color: #000000;
     margin: 0;
 }
 
@@ -70,6 +64,8 @@ body {
     }
 }
 
+/*
 #columns:hover .pin:not(:hover) {
     opacity: 0.4;
 }
+*/
