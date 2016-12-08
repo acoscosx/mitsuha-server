@@ -3,10 +3,11 @@ $(function() {
 
   socket.emit('client_ready');
 
-  socket.on('client_ready_back', function(files) {
+  socket.on('client_ready_back', function(oldFiles) {
+    var files = shuffle(oldFiles);
     for (var i = 0; i < files.length; i++) {
       var img_name = files[i];
-      var img_path = "images/" + img_name;
+      var img_path = "resized_images/" + img_name;
       var inner_div = $('<div>').addClass('pin');
       inner_div.append($('<img>').attr("src", img_path));
       $('#columns').append(inner_div);
@@ -17,11 +18,12 @@ $(function() {
     refreshImages(files);
   });
 
-  function refreshImages(files) {
+  function refreshImages(oldFiles) {
+    var files = shuffle(oldFiles);
     $('#columns').empty();
     for (var i = 0; i < files.length; i++) {
       var img_name = files[i];
-      var img_path = "images/" + img_name;
+      var img_path = "resized_images/" + img_name;
       var inner_div = $('<div>').addClass('pin');
       inner_div.append($('<img>').attr("src", img_path));
       $('#columns').append(inner_div);
@@ -36,4 +38,9 @@ $(function() {
       }
     }
   });
+
+  function shuffle(files) {
+    var shuffle = function() {return Math.random()-.5};
+    return files.sort(shuffle);
+  }
 });
